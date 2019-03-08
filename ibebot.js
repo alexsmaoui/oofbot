@@ -2,10 +2,6 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
- cooldown = new Set();
-
- let cdseconds = 5;
-
 
  client.on ("ready", () => {
      console.log ("ready!");
@@ -57,13 +53,6 @@ client.on('guildMemberRemove' , member => {
         mention.send (mentionMessage);
         message.channel.send ("Message has been sent!");
     }
-
-    if(msg.startsWith (prefix)) return; 
-    if(cooldown.has(message.author.id)){
-        return message.channel.send('U need to wait 5 seconds before using this command again!')
-
-    }
-    cooldown.add(message.author.id)
     
     if (answered == false) {
         userAnswer = msg;
