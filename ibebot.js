@@ -2,6 +2,10 @@ const discord = require ('discord.js');
 
  var client = new discord.Client();
 
+ cooldown = new Set();
+
+ let cdseconds = 5;
+
 
  client.on ("ready", () => {
      console.log ("ready!");
@@ -53,13 +57,14 @@ client.on('guildMemberRemove' , member => {
         mention.send (mentionMessage);
         message.channel.send ("Message has been sent!");
     }
-    if (msg.startsWith (prefix)) return; 
-    if (cooldown.has(message.author.id)){
+
+    if(msg.startsWith (prefix)) return; 
+    if(cooldown.has(message.author.id)){
         return message.channel.send('U need to wait 5 seconds before using this command again!')
 
     }
     cooldown.add(message.author.id)
-
+    
     if (answered == false) {
         userAnswer = msg;
         if (userAnswer == cAnswer) {
@@ -87,21 +92,21 @@ client.on('guildMemberRemove' , member => {
         message.reply ("Hi!");
     }
     
-    if (msg.startsWith (prefix + "infosss")) {
-        embed = new discord.RichEmbed ()
-            .setAuthor ("?? INVITE REWARDS ??")
-            .setDescription ("These are the invite rewards ! \n 2: Random account (1+ skin) \n --More income..")
-            .setFooter ("This invite rewards was created by Ibbe")
-            .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
-            .setColor ("00ff00")
+    //if (msg.startsWith (prefix + "infosss")) {
+       //embed = new discord.RichEmbed ()
+           // .setAuthor ("?? INVITE REWARDS ??")
+           // .setDescription ("These are the invite rewards ! \n 2: Random account (1+ skin) \n --More income..")
+           // .setFooter ("This invite rewards was created by Ibbe")
+           // .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
+           // .setColor ("00ff00")
 
-        message.channel.send (embed);    
-    }
+        //message.channel.send (embed);    
+    //}
 
     if (msg.startsWith (prefix + "helpp")) {
         embed2 = new discord.RichEmbed ()
             .setAuthor ("What's the server for ? ?? Looking for info ? here is the commands ?? :")
-            .setDescription (" --!helpp \n --!hello \n --!write + write something and then !get \n --!dm \n --!send + tag someone + ur message \n -- ??More coming soon??...!")
+            .setDescription (" --!infos \n --!helpp \n --!owner \n --!hello \n --!write + write something and then !get \n -- ??More coming soon??...!")
             .setFooter ("This commands was created by Skanheroo.")
             .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
             .setColor ("00ff00")
