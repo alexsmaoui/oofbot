@@ -53,6 +53,12 @@ client.on('guildMemberRemove' , member => {
         mention.send (mentionMessage);
         message.channel.send ("Message has been sent!");
     }
+    if (msg.startsWith (prefix)) return; 
+    if (cooldown.has(message.author.id)){
+        return message.channel.send('U need to wait 5 seconds before using this command again!')
+
+    }
+    cooldown.add(message.author.id)
 
     if (answered == false) {
         userAnswer = msg;
@@ -95,7 +101,7 @@ client.on('guildMemberRemove' , member => {
     if (msg.startsWith (prefix + "helpp")) {
         embed2 = new discord.RichEmbed ()
             .setAuthor ("What's the server for ? ?? Looking for info ? here is the commands ?? :")
-            .setDescription (" --!infos \n --!helpp \n --!owner \n --!hello \n --!write + write something and then !get \n -- ??More coming soon??...!")
+            .setDescription (" --!helpp \n --!hello \n --!write + write something and then !get \n --!dm \n --!send + tag someone + ur message \n -- ??More coming soon??...!")
             .setFooter ("This commands was created by Skanheroo.")
             .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
             .setColor ("00ff00")
