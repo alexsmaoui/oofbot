@@ -80,17 +80,6 @@ client.on('guildMemberRemove' , member => {
     if (msg.startsWith (prefix + "hello")) {
         message.reply ("Hi!");
     }
-    
-    //if (msg.startsWith (prefix + "infosss")) {
-       //embed = new discord.RichEmbed ()
-           // .setAuthor ("?? INVITE REWARDS ??")
-           // .setDescription ("These are the invite rewards ! \n 2: Random account (1+ skin) \n --More income..")
-           // .setFooter ("This invite rewards was created by Ibbe")
-           // .setThumbnail ("https://cdn.discordapp.com/attachments/550018287405367306/550712951485759508/JPEG_20190228_155714.jpg")
-           // .setColor ("00ff00")
-
-        //message.channel.send (embed);    
-    //}
 
     if (msg.startsWith (prefix + "helpp")) {
         embed2 = new discord.RichEmbed ()
@@ -103,7 +92,7 @@ client.on('guildMemberRemove' , member => {
         message.channel.send (embed2);
     }
 
-    if (message.content.startsWith ("??")) {
+    if (message.content.startsWith (":eyes:")) {
         message.channel.send (":eyes:");
         let emojicounter = client.msgs["counter"].eyesEmoji;
         client.msgs ["counter"] = {
